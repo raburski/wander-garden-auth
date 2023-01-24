@@ -1,6 +1,6 @@
 const client_secret = process.env.FOURSQUARE_CLIENT_SECRET;
 const client_id = process.env.FOURSQUARE_CLIENT_ID;
-const redirect_url = 'http://wander.garden/auth.php?type=foursquare';
+const redirect_url = 'https://auth.wander.garden/api/foursquare';
 
 export default async function handler(req, res) {
     const { code } = req.query;
@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     if (!json.access_token) {
         return res.status(400).send('access token not found')
     }
-    const authenticated_redirect = `http://wander.garden/auth?access_token=${access_token}`
+    const authenticated_redirect = `https://wander.garden/auth?access_token=${access_token}`
     return res.redirect(authenticated_redirect)
 }
   
