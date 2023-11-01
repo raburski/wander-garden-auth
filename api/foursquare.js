@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     if (!json.access_token) {
         return res.status(400).send('access token not found')
     }
-    const authenticated_redirect = `https://wander.garden/auth?access_token=${json.access_token}`
+    const authenticated_redirect = `https://app.wander.garden/auth?access_token=${json.access_token}`
     return res.redirect(authenticated_redirect)
 }
   
