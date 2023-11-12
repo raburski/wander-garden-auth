@@ -9,6 +9,7 @@ export default async function handler(req, res) {
     }
 
     const url = `https://api.instagram.com/oauth/access_token?client_id=${client_id}&client_secret=${client_secret}&grant_type=authorization_code&redirect_uri=${redirect_url}&code=${code}`;
+    return res.status(200).send(url)
     const response = await fetch(url)
     const json = await response.json()
     if (!json.access_token) {
